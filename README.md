@@ -1,0 +1,41 @@
+<h4># sms</h4>
+<h4># SCHOOL MANAGEMENT SYSTEM</h4>
+
+
+<h5>### ROLES </h5>
+
+<h5># 1- ADMIN </h5>
+<p># 2- PRINCIPAL/HEAD-TEACHER</p>
+<p># 3- TEACHER </p>
+<p># 4- BURSARY/ACCOUNTANT </p>
+<p># 5- EXAMS OFFICER </p>
+<p># 6- GUARDIAN/PARENT </p>
+
+
+<h5>### PRIMARY FEATURES</h5>
+
+<h5> # *STUDENT </h5>
+<p># - STUDENT (DELETE, CREATE, UPDATE, VIEW)</p>
+<p># - STUDENT REGISTRATION.</p>
+<p># - STUDENT INFORMATION.</p>
+<p># - STUDENT RESULT MODULE.</p>
+<p># - STUDENT PERFORMANCE.</p>
+<p># - STUDENT TUITION FEE PAYMENT.</p>
+
+
+<h5>### PAYMENTS </h5>
+<p># - VIEW PAYMENTS(TUITION, SPORT, TRANSPORTATION, BOOKS).</p>
+<p># - MAKE PAYMENTS(online and offline).</p>
+<p># - ENABLE PAYMENTS.</p>
+
+<h5> ### BUS/TRANSPORTATION </h5>
+<p># - ADD VEHICLES.</p>
+<p># - VIEW VEHICLES.</p>
+<p># - MAKE PAYMENTS(online and offline) FOR TRANSPORTATION.</p>
+<p># - ALLOCATE STUDENT TO BUS.</p>
+
+
+<h5> ### GRADINGS/RESULTS <h5>
+<p># - ADD, UPDATE, VIEW GRADES.</p>
+<p># - VIEW STUDENT RESULTS.</p>
+# sms
