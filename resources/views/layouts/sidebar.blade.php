@@ -1,23 +1,14 @@
 <!-- ========== App Menu ========== -->
+
 <div class="app-menu navbar-menu">
     <!-- LOGO -->
     <div class="navbar-brand-box">
-        <!-- Dark Logo-->
-        <a href="index" class="logo logo-dark">
+        <a href="index" class="logo">
             <span class="logo-sm">
-                <img src="{{ URL::asset('build/images/logo-sm.png') }}" alt="" height="22">
+                <img src="{{ asset('images/'.$setting->logo) }}?v={{ time() }}" alt="logo" class="rounded-circle" width="100">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('build/images/logo-dark.png') }}" alt="" height="17">
-            </span>
-        </a>
-        <!-- Light Logo-->
-        <a href="index" class="logo logo-light">
-            <span class="logo-sm">
-                <img src="{{ URL::asset('build/images/logo-sm.png') }}" alt="" height="22">
-            </span>
-            <span class="logo-lg">
-                <img src="{{ URL::asset('build/images/logo-light.png') }}" alt="" height="17">
+                <img src="{{ asset('images/'.$setting->logo) }}?v={{ time() }}" alt="logo" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; ">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -308,7 +299,7 @@
                                 <a href="{{ route('portal_settings.index') }}" class="nav-link">Portal Settings</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">System Settings</a>
+                                <a href="{{ route('settings.index') }}" class="nav-link">System Settings</a>
                             </li>
 
                             <li class="nav-item">

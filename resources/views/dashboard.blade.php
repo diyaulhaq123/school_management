@@ -26,7 +26,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_students }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('student.index') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-success-subtle rounded fs-3 material-shadow">
@@ -50,7 +50,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_guardians }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('accounts.index','guardian') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-light-subtle rounded fs-3 material-shadow">
@@ -74,7 +74,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_staffs }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('accounts.index','teacher') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-warning-subtle rounded fs-3 material-shadow">
@@ -123,7 +123,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span > ₦ {{ number_format($payments, 2) }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('payments.index') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-light-subtle rounded fs-3 material-shadow">
@@ -148,7 +148,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span > ₦ {{ number_format($successful_payments, 2) }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('payments.index') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-success-subtle rounded fs-3 material-shadow">
@@ -173,7 +173,7 @@
                     <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
                         <div bis_skin_checked="1">
                             <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >₦ {{ number_format($pending_payments, 2) }}</span></h4>
-                            <a href="" class="text-decoration-underline">View all</a>
+                            <a href="{{ route('payments.index') }}" class="text-decoration-underline">View all</a>
                         </div>
                         <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
                             <span class="avatar-title bg-warning-subtle rounded fs-3 material-shadow">

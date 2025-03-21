@@ -11,6 +11,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\GuardianController;
@@ -74,6 +75,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('lesson_plan', LessonPlanController::class);
     Route::patch('approve/lesson-plan', [LessonPlanController::class, 'approveLessonPlan'])->name('approve.lesson_plan');
 
+    Route::resource('settings', SettingController::class);
+
+    Route::patch('upload-logo', [SettingController::class,'uploadLogo'])->name('upload.logo');
 
     Route::resource('payment_activation', PaymentActivationController::class);
     Route::put('/toogle-activate-payment/{id}', [PaymentActivationController::class, 'toogleStatus']);

@@ -10,6 +10,7 @@
     {{-- {{ URL::asset('build/images/favicon.ico')}} --}}
     <link rel="shortcut icon" href="#">
         @include('layouts.head-css')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   </head>
 
     @yield('body')

@@ -19,6 +19,10 @@ class PaymentController extends Controller
      */
     public function index()
     {
+        $payments = Payment::sum('amount');
+        $successful_payments = Payment::where('response', 'success')->sum('amount');
+        $pending_payments = Payment::where('response', 'pending')->sum('amount');
+
         $guardians = User::select('id','email','name')->where('type', 'guardian')->get();
         $sessions = Session::select('id','name')->get();
         $terms = Term::select('id','name')->get();
@@ -44,7 +48,7 @@ class PaymentController extends Controller
         $dec = Payment::whereMonth('created_at', '=', 12)->count();
         $payment_by_months = [$jan, $feb, $mar, $apr, $may, $june, $july, $aug, $sep, $oct, $nov, $dec];
 
-        return view('payment.index', compact('guardians','sessions','terms','classes','payment_types','data','payment_by_months'));
+        return view('payment.index', compact('pending_payments','successful_payments','payments','guardians','sessions','terms','classes','payment_types','data','payment_by_months'));
     }
 
     /**
