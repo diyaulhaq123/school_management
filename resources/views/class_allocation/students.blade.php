@@ -6,7 +6,7 @@ Class Allocation Students
 
 @component('components.breadcrumb')
 @slot('li_1') Pages @endslot
-@slot('title') Class Allocation Students @endslot
+@slot('title') Class Allocated Students @endslot
 @endcomponent
 
 <div class="row">
@@ -18,7 +18,7 @@ Class Allocation Students
             @endcan
         </div> --}}
         <div class="card-body">
-            <div class="card-title fw-bold">Class Allocations Students</div>
+            <div class="card-title fw-bold">Class Allocated Students</div>
            <div class="row justify-content-center">
             <div class="col-10">
                 <div class="table table-responsive">
@@ -26,7 +26,7 @@ Class Allocation Students
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Staff</th>
+                                <th>Student name</th>
                                 <th>Class</th>
                                 <th>Wing</th>
                                 <th>Session</th>

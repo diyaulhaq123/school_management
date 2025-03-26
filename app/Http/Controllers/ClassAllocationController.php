@@ -149,7 +149,7 @@ class ClassAllocationController extends Controller
         //     return redirect('subject-allocations')->with('error', 'You do not have access to there resource');
         // }
         $wing = $allocation->wing ?? '';
-        $students = Student::where('class_id', $allocation->class_id)
+        $students = Student::with('class','session')->where('class_id', $allocation->class_id)
             ->when($wing, function ($query) use ($wing) {
             $query->where('wing', $wing);
             })->get();

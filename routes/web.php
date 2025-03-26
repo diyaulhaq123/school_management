@@ -16,6 +16,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\GradeBookController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\LessonPlanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PaymentTypeController;
@@ -87,6 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('result', ResultController::class);
     Route::put('/toogle-activate-result/{id}', [ResultController::class, 'toogleStatus']);
     Route::resource('subject-registration', SubjectRegistrationController::class);
+    Route::resource('attendance', AttendanceController::class);
 
     Route::get('/api-subjects/{class_id}', [SubjectController::class,'getSubjectsByClass'])->name('api.get_subjects');
 
@@ -105,6 +107,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/student/result-slip/{student_id}/{class_id}/{session_id}/{term_id}', [GradeBookController::class, 'getStudentResult'])->name('get.result');
 
     Route::get('/student/make-payment/{id}', [PaymentController::class, 'makePayment'])->name('initiate.payment');
+
+    Route::get('/attendance/mark/{allocation_id}', [AttendanceController::class, 'markAttendance'])
+    ->name('attendance.mark');
+
+    Route::post('/attendance/update', [AttendanceController::class, 'updateAttendance'])
+        ->name('attendance.update');
 
 
 

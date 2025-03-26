@@ -135,4 +135,14 @@ class Student extends Model
     }
 
 
+    /**
+     * Get all of the attendances for the Student
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
 }

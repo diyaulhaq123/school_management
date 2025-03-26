@@ -1,63 +1,44 @@
 @extends('layouts.master')
 @section('title')
-Subject Allocations
+Attendance
 @endsection
 @section('content')
 
 @component('components.breadcrumb')
 @slot('li_1') Pages @endslot
-@slot('title') Subject Allocations  @endslot
+@slot('title') Attendance  @endslot
 @endcomponent
 
 <div class="row">
 
     <div class="card p-4">
         <div class="card-header">
-            <a class="btn btn-primary float-end" href="{{ route('subject-allocations.create') }}" > <i class="ri-add-circle-line"></i> Allocate Subjects</a>
+            {{-- @can('add-class-allocation') --}}
+            <a class="btn btn-primary float-end" href="{{ route('attendance.create') }}" > <i class="ri-add-circle-line"></i> Mark Class</a>
+            {{-- @endcan --}}
         </div>
         <div class="card-body">
-            <div class="card-title fw-bold">Subject Allocations</div>
+            <div class="card-title fw-bold">Attendance List</div>
            <div class="row justify-content-center">
             <div class="col-10">
                 <div class="table table-responsive">
                     <table class="table display" id="myTable">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                @if(auth()->user()->hasRole('admin'))
-                                <th>Staff</th>
-                                @endif
-                                <th>Subject</th>
-                                <th>Class</th>
-                                <th>Wing</th>
-                                <th>Session</th>
-                                <th>Term</th>
-                                <th>Action</th>
+                                <th>SN</th>
+                                <th>Student</th>
+                                <th>Attendances</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($subject_allocations as $row)
+                            @foreach ($students as $index => $row)
                             <tr>
-                                <input type="hidden" value="{{ $row->id }}" name="id" id="id">
-                                <td>#</td>
-                                @if(auth()->user()->hasRole('admin'))
-                                <td > {{ $row->user->name ?? '' }} </td>
-                                @endif
-                                <td > {{ $row->subject->name ?? '' }} </td>
-                                <td > {{ $row->class->name ?? '' }} </td>
-                                <td > {{ $row->wing ?? '' }} </td>
-                                <td > {{ $row->session->name ?? '' }} </td>
-                                <td > {{ $row->term->name ?? '' }} </td>
+                                <td>{{ $index+1 }}</td>
+                                <td>{{ $row->admission_no }}</td>
                                 <td>
-                                    <div class="form-check form-switch mb-2" bis_skin_checked="1">
-                                        @can('add-grades')
-                                        <a href="{{ route('add_grade.index', $row->id ) }}" class="btn btn-primary btn-sm">Add grades</a>
-                                        @endcan
-                                        @can('edit-subject-allocation')
-                                        <a class="btn btn-info btn-sm" href="{{ route('subject-allocations.edit', $row->id) }}" ><i class="ri ri-edit-fill"></i></a>
-                                        @endcan
-
-                                    </div>
+                                    @foreach ($row->attendances as $attendance)
+                                    <span class="badge {{ $attendance->active_status == 'present' ? 'bg-success' : 'bg-danger' }}">{{ $attendance->active_status == 'present' ? 'P' : 'A' }}</span>
+                                    @endforeach
                                 </td>
                             </tr>
                             @endforeach
@@ -82,6 +63,7 @@ Subject Allocations
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
 @endsection
+
 @section('script')
 
     <script src="{{ URL::asset('build/js/app.js') }}"></script>
@@ -110,5 +92,4 @@ Subject Allocations
          });
 
      </script>
-
 @endsection

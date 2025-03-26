@@ -10,7 +10,7 @@ class ClassAllocation extends Model
     protected $guarded = [];
 
 
-        /**
+    /**
      * Get the class that owns the Result
      *
      * @return BelongsTo

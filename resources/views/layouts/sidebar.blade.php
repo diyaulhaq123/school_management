@@ -192,7 +192,7 @@
 
                 @can('home-attendance')
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#" aria-expanded="false" aria-controls="sidebarLayouts">
+                    <a class="nav-link menu-link" href="{{ route('attendance.index') }}" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="ri-calendar-check-line"></i> <span>Attendance</span>
                     </a>
                 </li> <!-- end attendance Menu -->

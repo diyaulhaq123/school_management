@@ -26,12 +26,17 @@ Class Allocations
                         <thead>
                             <tr>
                                 <th>#</th>
+                                @if(auth()->user()->hasRole('admin'))
                                 <th>Staff</th>
+                                @endif
                                 <th>Class</th>
                                 <th>Wing</th>
                                 <th>Session</th>
                                 <th>Term</th>
                                 <th>Action</th>
+                                @if(auth()->user()->hasRole(['teacher','eo','principal']))
+                                <th>Attendance</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -39,7 +44,9 @@ Class Allocations
                             <tr>
                                 <input type="hidden" value="{{ $row->id }}" name="id" id="id">
                                 <td>#</td>
+                                @if(auth()->user()->hasRole('admin'))
                                 <td > {{ $row->user->name ?? '-' }} </td>
+                                @endif
                                 <td > {{ $row->class->name ?? '-' }} </td>
                                 <td > {{ $row->wing ?? '-' }} </td>
                                 <td > {{ $row->session->name ?? '-' }} </td>
@@ -57,6 +64,13 @@ Class Allocations
 
                                     </div>
                                 </td>
+                                @if(auth()->user()->hasRole(['teacher','eo','principal']))
+                                <td>
+                                    <a class="btn btn-success btn-sm" href="{{ route('attendance.mark', $row->id) }}">
+                                        <i class="ri-check-line"></i> Mark Attendance
+                                    </a>
+                                </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

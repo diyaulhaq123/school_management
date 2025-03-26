@@ -14,6 +14,102 @@
 
     <div class="row" bis_skin_checked="1">
 
+        @if (auth()->user()->hasRole(['teacher','eo']))
+        <div class="col-xl-3 col-md-6" bis_skin_checked="1">
+            <!-- card -->
+            <div class="card card-animate" bis_skin_checked="1">
+                <div class="card-body" bis_skin_checked="1">
+                    <div class="d-flex align-items-center" bis_skin_checked="1">
+                        <div class="flex-grow-1" bis_skin_checked="1">
+                            <p class="text-uppercase fw-medium text-muted mb-0">Class Allocated Students</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
+                        <div bis_skin_checked="1">
+                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_students }}</span></h4>
+                            {{-- <a href="{{ route('student.index') }}" class="text-decoration-underline">View all</a> --}}
+                        </div>
+                        <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
+                            <span class="avatar-title bg-success-subtle rounded fs-3 material-shadow">
+                                <i class="bx bx-user-circle text-success"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6" bis_skin_checked="1">
+            <!-- card -->
+            <div class="card card-animate" bis_skin_checked="1">
+                <div class="card-body" bis_skin_checked="1">
+                    <div class="d-flex align-items-center" bis_skin_checked="1">
+                        <div class="flex-grow-1" bis_skin_checked="1">
+                            <p class="text-uppercase fw-medium text-muted mb-0">Subject Allocated</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
+                        <div bis_skin_checked="1">
+                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_guardians }}</span></h4>
+                        </div>
+                        <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
+                            <span class="avatar-title bg-light-subtle rounded fs-3 material-shadow">
+                                <i class="bx bx-book text-dark"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6" bis_skin_checked="1">
+            <!-- card -->
+            <div class="card card-animate" bis_skin_checked="1">
+                <div class="card-body" bis_skin_checked="1">
+                    <div class="d-flex align-items-center" bis_skin_checked="1">
+                        <div class="flex-grow-1" bis_skin_checked="1">
+                            <p class="text-uppercase fw-medium text-muted mb-0">Current Term</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
+                        <div bis_skin_checked="1">
+                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >{{ $total_staffs }}</span></h4>
+                        </div>
+                        <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
+                            <span class="avatar-title bg-warning-subtle rounded fs-3 material-shadow">
+                                <i class="bx bx-calendar text-warning"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+        <div class="col-xl-3 col-md-6" bis_skin_checked="1">
+            <!-- card -->
+            <div class="card card-animate" bis_skin_checked="1">
+                <div class="card-body" bis_skin_checked="1">
+                    <div class="d-flex align-items-center" bis_skin_checked="1">
+                        <div class="flex-grow-1" bis_skin_checked="1">
+                            <p class="text-uppercase fw-medium text-muted mb-0">Current Session</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mt-4" bis_skin_checked="1">
+                        <div bis_skin_checked="1">
+                            <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span >0</span></h4>
+                        </div>
+                        <div class="avatar-sm flex-shrink-0" bis_skin_checked="1">
+                            <span class="avatar-title bg-primary-subtle rounded fs-3 material-shadow">
+                                <i class="bx bx-calendar text-primary"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+        @endif
+
+        @if (auth()->user()->hasRole(['admin','principal']))
         <div class="col-xl-3 col-md-6" bis_skin_checked="1">
             <!-- card -->
             <div class="card card-animate" bis_skin_checked="1">
@@ -110,6 +206,9 @@
             </div><!-- end card -->
         </div><!-- end col -->
 
+        @endif
+
+        @if (auth()->user()->hasRole(['admin','accountant']))
 
         <div class="col-xl-3 col-md-6" bis_skin_checked="1">
             <!-- card -->
@@ -135,7 +234,6 @@
             </div><!-- end card -->
         </div><!-- end col -->
 
-
         <div class="col-xl-3 col-md-6" bis_skin_checked="1">
             <!-- card -->
             <div class="card card-animate" bis_skin_checked="1">
@@ -159,7 +257,6 @@
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col -->
-
 
         <div class="col-xl-3 col-md-6" bis_skin_checked="1">
             <!-- card -->
@@ -208,9 +305,11 @@
                 </div><!-- end card body -->
             </div><!-- end card -->
         </div><!-- end col -->
+        @endif
 
     </div>
 
+    @if (auth()->user()->hasRole(['admin','principal']))
     <div class="row mb-4">
         <div class="col-lg-8 col-sm-12 mb-4">
             <div class="card card-custom">
@@ -266,7 +365,9 @@
             </div><!-- end card -->
         </div>
     </div>
+    @endif
 
+    @if (auth()->user()->hasRole(['admin','accountant']))
     <div class="row">
         <div class="col-12">
             <div class="card card-custom">
@@ -312,6 +413,9 @@
             </div>
         </div>
     </div>
+    @endif
+
+
 </div>
 
 @endsection
